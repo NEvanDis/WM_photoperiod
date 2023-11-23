@@ -1,0 +1,1 @@
+# Raw data belonging to the manuscript "Temperature has an overriding role compared to photoperiod in regulating the seasonal timing of winter moth egg hatching" have been deposited on Dryad [insert link]
