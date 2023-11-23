@@ -16,7 +16,7 @@ R script to reproduce the analysis and visualization (incl. manuscript figures) 
 
 &nbsp;
 
-## Split-brood experiment 2: photoperiod X temperature treatments
+## Split-brood experiment 2: photoperiod x temperature treatments
 ### Script: ```2_scripts/2_EggPhotoTempExp2001_analysis.R```
 R script to reproduce the analysis and visualization (incl. manuscript figures) of the 2001 winter moth egg photoperiod-temperature experiment: What is the relative contribution of photoperiod and temperature on the timing of egg hatching?
 
