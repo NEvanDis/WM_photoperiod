@@ -20,4 +20,6 @@ R script to reproduce the analysis and visualization (incl. manuscript figures) 
 ### Script: ```2_scripts/2_EggPhotoTempExp2001_analysis.R```
 R script to reproduce the analysis and visualization (incl. manuscript figures) of the 2001 winter moth egg photoperiod-temperature experiment: What is the relative contribution of photoperiod and temperature on the timing of egg hatching?
 
+&nbsp;
+
 See ```_src/renv.lock``` for used R version and package versions.
