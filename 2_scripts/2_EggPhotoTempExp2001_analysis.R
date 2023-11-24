@@ -7,7 +7,6 @@
 # Load packages
 #-----------------------------------
 library(tidyverse)
-library(readxl)
 library(cowplot)
 theme_set(theme_cowplot()) #white background instead of grey -> don't load if want grey grid
 library(lme4)
@@ -16,7 +15,7 @@ library(lmerTest)
 
 # Load data ####
 #-----------------------------------
-d_2001 <- read_xlsx("data/db_EggPhotTemp2001_d50.xlsx") # 2001 experiment d50 egg hatch dates per subclutch
+d_2001 <- read.csv("1_data/db_EggPhotTemp2001_d50.csv") # 2001 experiment d50 egg hatch dates per subclutch
 head(d_2001)
 
 table(is.na(d_2001$D50Calc)) # for 1 subclutches no D50 available, N=79 subclutches
@@ -38,7 +37,7 @@ head(d_2001)
 
 # CHECK TEMP LOGGER DATA ####
 #----------------------------------
-d_temp2001 <- read_xlsx("data/db_EggPhotTemp2001_temploggers.xlsx") # load temp logger data
+d_temp2001 <- read.csv("1_data/db_EggPhotTemp2001_temploggers.csv") # load temp logger data
 d_temp2001 <- d_temp2001 %>% mutate(Treatment=as.factor(LocationName), DateTime=as.POSIXct(paste0(Year, "-", Month, "-", Day, " ", Hour, ":", Minute))) %>% 
   select(Treatment, DateTime, LoggerName, Temperature)
 head(d_temp2001)
