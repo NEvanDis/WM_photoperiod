@@ -7,7 +7,6 @@
 # Load packages
 #-----------------------------------
 library(tidyverse)
-library(readxl)
 library(cowplot)
 theme_set(theme_cowplot()) #white background instead of grey -> don't load if want grey grid
 library(lme4)
@@ -16,7 +15,7 @@ library(lmerTest)
 
 # Load data ####
 #-----------------------------------
-d_2014 <- read_xlsx("data/db_EggPhot2014_d50.xlsx") # 2014 experiment d50 egg hatch dates per subclutch
+d_2014 <- read.csv("1_data/db_EggPhot2014_d50.csv") # 2014 experiment d50 egg hatch dates per subclutch
 head(d_2014)
 
 table(is.na(d_2014$D50Calc)) # for 3 subclutches no D50 available, N=462 subclutches
@@ -38,12 +37,12 @@ head(d_2014)
 
 # CHECK TEMP LOGGER DATA ####
 #----------------------------------
-boxes <- read_xlsx("data/db_EggPhot2014_boxes.xlsx") # data 2014
+boxes <- read.csv("1_data/db_EggPhot2014_boxes.csv") # data 2014
 boxes
 
-d_temp1 <- read_xlsx("data/db_EggPhot2014_temploggers_box1-5.xlsx")
-d_temp2 <- read_xlsx("data/db_EggPhot2014_temploggers_box6-10.xlsx")
-d_temp3 <- read_xlsx("data/db_EggPhot2014_temploggers_box11-15.xlsx")
+d_temp1 <- read.csv("1_data/db_EggPhot2014_temploggers_box1-5.csv")
+d_temp2 <- read.csv("1_data/db_EggPhot2014_temploggers_box6-10.csv")
+d_temp3 <- read.csv("1_data/db_EggPhot2014_temploggers_box11-15.csv")
 d_temp <- rbind(d_temp1, d_temp2, d_temp3)
 rm(d_temp1, d_temp2, d_temp3)
 gc()
