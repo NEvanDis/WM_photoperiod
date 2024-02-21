@@ -25,6 +25,9 @@ table(d_2014$NovemberDate) # Catch dates
 table(d_2014$Treatment) # in total 5 photoperiod treatments, 0 weeks = control, e.g. +2 weeks means photoperiod was manipulated to be 2 weeks later than the control treatment
 summary(d_2014$Eggs) # subclutches of at least 12 eggs
 aggregate(Eggs~TubeID, d_2014, sum) # range of clutch size
+aggregate(ClutchID~TubeID+Treatment, d_2014, length) # number of subclutches per female per treatment
+aggregate(ClutchID~TubeID+Treatment, filter(d_2014, !is.na(D50Calc)), length) %>% filter(ClutchID<3) # females and treatments for which subclutches were excluded because <10 eggs hatched
+unique(d_2014$ClutchID) %>% length() # total number of subclutches
 
 
 # -- Prep data for analysis
