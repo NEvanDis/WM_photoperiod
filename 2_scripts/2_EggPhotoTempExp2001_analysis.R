@@ -25,7 +25,12 @@ table(d_2001$NovemberDate) # Catch dates
 table(d_2001$Treatment) # in total 4 treatments, KK = koud kort (cold year 1973 + short day length=early season photoperiod), WL = warm lang (warm year 1999 + long day length=late season photoperiod)
 summary(d_2001$Eggs) # subclutches of at least 14 eggs
 aggregate(Eggs~TubeID, d_2001, sum) # range of clutch size
+aggregate(ClutchID~TubeID+Treatment, d_2001, length) # number of subclutches per female per treatment
+filter(d_2001, is.na(D50Calc)) # female and treatment for which subclutch was excluded because <10 eggs hatched
+unique(d_2001$ClutchID) %>% length() # total number of subclutches
 
+
+# -- Prep data for analysis
 d_2001 <- d_2001 %>% mutate(TempTreat=as.factor(ifelse(Treatment=="KK" | Treatment=="KL", "Cold", "Warm")),
                             PhotTreat=as.factor(ifelse(Treatment=="KK" | Treatment=="WK", "-2 weeks", "+2 weeks")), TubeID=as.factor(TubeID)) %>% 
   mutate(TempTreat=factor(TempTreat, levels=c("Cold", "Warm")),
